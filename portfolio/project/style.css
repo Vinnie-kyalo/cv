@@ -1,0 +1,120 @@
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav .link a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 5px;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+nav .link a:hover {
+    text-decoration: underline;
+}
+
+nav .buttons button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background-color: #f90;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+nav .buttons button:hover {
+    background-color: #e80;
+}
+
+/* About Us section */
+.about, .about-us {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.about-us p {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 1.1em;
+    line-height: 1.6em;
+}
+
+/* Facilities section */
+.fac {
+    display: inline-block;
+    width: 200px;
+    margin: 20px;
+    vertical-align: top;
+    text-align: center;
+}
+
+.fac img {
+    width: 128px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.fac h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.fac p {
+    font-size: 1em;
+}
+
+/* Social Media section */
+.social-media {
+    text-align: center;
+    padding: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+.social-media a:hover {
+    color: #f90;
+}
+
+section{
+    width: 100%;
+    height: 85vh;
+    background-image: url(buscar.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

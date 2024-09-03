@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color:plum;
+    
+}
+
+header {
+    background: purple;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    color: blue;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+nav ul li a:hover {
+    background-color: #1b27d6; /* Background color on hover */
+    color: red; /* Text color on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+    transform: scale(1.05); /* Scale up slightly on hover */
+}
+main {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+}
+
+.content {
+    flex: 3;
+    background: gold;
+    padding: 1rem;
+    margin-right: 1rem;
+}
+
+.sidebar {
+    flex: 1;
+    background: red;
+    padding: 1rem;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+h2{
+    color: blue;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px; /* Set the desired width */
+    height: 300px; /* Set the desired height */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden;
+    border-radius: 50%; /* Make the container a circle */
+    border: 1px solid #ccc; /* Optional: add border for better visualization */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow for better visualization */
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+    display: block; /* Remove bottom space under image */
+}
+.nightnurse{
+    height: 50vh;
+}

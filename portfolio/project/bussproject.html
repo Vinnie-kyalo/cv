@@ -1,0 +1,640 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ticket booking</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+header {
+    background-color: #333;
+    color: rgb(189, 6, 6);
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 100px;
+}
+
+nav .link a {
+    color: rgb(28, 14, 231);
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 5px;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+nav .link a:hover {
+    text-decoration: underline;
+}
+
+nav .buttons button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    background-color: #f90;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+nav .buttons button:hover {
+    background-color: #e80;
+}
+/* Styling for the header and navigation */
+header {
+    background-color: #20f411;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Existing CSS styles */
+/* Include your existing styles here */
+
+/* Styling for the about-us content */
+.about-us {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about-us.show {
+    display: block;
+}
+
+/* About Us section */
+.about, .about-us {
+    padding: 20px;
+    text-align: center;
+}
+
+.about h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.about-us p {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 1.1em;
+    line-height: 1.6em;
+}
+
+/* Facilities section */
+.fac {
+    display: inline-block;
+    width: 200px;
+    margin: 20px;
+    vertical-align: top;
+    text-align: center;
+}
+
+.fac img {
+    width: 128px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.fac h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.fac p {
+    font-size: 1em;
+}
+
+/* Social Media section */
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    margin: 0 10px;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 50%; /* Makes the icons circular */
+    transition: transform 0.3s ease; /* Adds a smooth hover effect */
+}
+
+.social-media img:hover {
+    transform: scale(1.2); /* Enlarges the icon on hover */
+}
+/*home section*/ 
+section home{
+    background-image: url(buscar.jpeg);
+}
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+.close {
+  color: #30ed1f;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*container*/
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Example maximum width */
+    margin: 0 auto; /* Center horizontally */
+    margin-top: 20px; /* Example top margin */
+}
+
+.container .header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1f26e4; /* Blue color */
+    margin-bottom: 20px;
+}
+
+.container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333; /* Dark gray color */
+}
+
+.container input[type="text"],
+.container input[type="date"],
+.container select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container input[type="submit"]:hover {
+    background-color: #45a049; /* Darker green color on hover */
+}
+
+.about-us {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.about-us.show {
+    display: block;
+}
+        /*popular bus ticket*/
+.tickets {
+    width: 200px;
+    height: auto;
+    margin: 5px;
+    text-align: center;
+}
+.tickets {
+    display: flex;
+    justify-content: center; /* Align items horizontally in the center */
+    /* Other container styles */
+    
+}
+.ticket {
+    display: flex;
+    flex-wrap: wrap; /* Wrap items onto multiple lines */
+    justify-content: center; /* Align items horizontally in the center */
+    /* Other container styles */
+}
+
+.ticket {
+    /* Individual item styles */
+    margin: 10px; /* Example margin between items */
+}
+
+.tickets h2 {
+    color: #1f26e4;
+    position: fixed;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text horizontally */
+    /* Other container styles */
+}
+
+.ticket h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.ticket p {
+    font-size: 1em;
+}
+ /*contact us*/
+ .contact-form {
+    max-width: 400px; /* Adjust width to control overall size */
+    margin: 20px auto;
+    background-color: #f9f9f9; /* Light background color */
+    padding: 20px; /* Increase padding for better spacing */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Centering styles */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form h1 {
+    font-size: 24px;
+    color: #333; /* Dark text color */
+    margin-bottom: 15px; /* Increase spacing below heading */
+}
+
+.contact-form label {
+    font-size: 14px; /* Adjust label font size */
+    color: #555; /* Slightly darker text color */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px; /* Increase spacing between input fields */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px; /* Adjust input and textarea font size */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing of textarea */
+    height: 10px; /* Increase textarea height for more content */
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px; /* Increase padding for larger button */
+    background-color: #007BFF; /* Blue button color */
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Larger button font size */
+}
+
+.contact-form button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+
+
+
+/*footer*/
+body footer{
+    background-color: rgb(26, 214, 82);
+}
+ 
+    </style>
+    
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                 <img src="bus log.png" alt="log image" width="150",length="60">
+                 
+            </div>
+            <div class="navigation">
+                <Ul>
+                     <u><i><b> <a href="">HOME</a></b></i></u>
+                     <u><i><b><a href="" id="about-us">ABOUT ME</a></b></i></u>
+                     <u><i> <b><a href="">SERVICES</a></b></i></u>
+                     <u><i> <b><a href="">PAGES</a></b></i></u>
+                     <u><i> <b><a href="">CONTACT</a></b></i></u>
+                     <b><a href="#" class="btn-login">Login / Sign Up</a></b>
+                </Ul>
+            </div>
+    </header>
+    <main>
+        <section id="HOME">
+            <center>
+                <nav>
+                    <div class="container">
+                        <div class="header">RESERVE >> PURCHASE >> ADVENTURE</div>
+                        <form>
+                            <div class="form-group">
+                                <label for="from">From</label>
+                                <input type="text" id="from" name="from" placeholder="Enter departure location">
+                            </div>
+                            <div class="form-group">
+                                <label for="to">To</label>
+                                <input type="text" id="to" name="to" placeholder="Enter destination">
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" name="date">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Search">
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+            </center>
+        </section>
+        
+        <div class="about-us" id="about-us-content">
+            <p>Universal coach where comfort and convenience are our top priorities. We specialize in providing premium coach bus services, designed to make your journey enjoyable and stress-free. Our fleet of modern, eco-friendly buses is equipped with state-of-the-art amenities including spacious seating, onboard entertainment, Wi-Fi, and complimentary refreshments. Whether you are traveling for business or leisure, our dedicated team is committed to delivering an exceptional travel experience from start to finish. Discover a new standard of travel with Universal Coach Travel.</p>
+        </div>
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Login / Sign Up</h2>
+      <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" required><br><br>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+      
+    </div>
+</div>
+ 
+
+
+<br>
+<br>
+<br>
+<br>
+<center>
+<div class="fac">
+    <img src="uni coach.jpg" alt="Comfortable bus" style="width:128px;height:80px;">
+    <h2>Comfort</h2>
+    <p>We have the most comfortable buses on the kenyan road with lots of legroom to ensure that you reach your destination fully relaxed</p>
+</div>
+<div class="fac">
+    <img src="bus.jpg" alt="Comfortable bus" style="width:128px;height:80px;">
+    <h2>NO 1 BUS</h2>
+    <p>Universal bus has been leading public bus transporter for the past 16 years in Kenya</p>
+</div>
+<div class="fac">
+    <img src="seats.jpg" alt="Comfortable bus" style="width:128px;height:80px;">
+    <h2>WE CARE</h2>
+    <p>We have the most comfortable buses on the kenyan road with lot of legroom to ensure that you reach your destination fully relaxed</p>
+</div>
+<div class="fac">
+    <img src="bus.jpg" alt="Comfortable bus" style="width:128px;height:80px;">
+    <h2>SLEEPING COACH</h2>
+    <p>Universal bus is first sleeping coach in eastern africa region with the largest seat to provide you with luxurious travelling experience</p>
+</div>
+<div class="fac">
+    <img src="lipa na mpesa.jpg" alt="Comfortable bus" style="width:128px;height:80px;">
+    <h2>LIPA NA MPESA</h2>
+    <p>We have introduced several options to book from the comfort of your home or from whichever location you are. e.g Lipa Na Mpesa, online booking</p>
+</div>
+<div class="fac">
+    <img src="aminities.jpeg" alt="Comfortable bus" style="width:128px;height:80px;">
+    <h2>amenities</h2>
+    <p>Our buses are fitted with Air Conditioning, high speed internet connection via wifi and power outlets to charge your devices on the go</p>
+</div>
+</div>
+</center>
+<center>
+        
+        <div class="tickets">
+            <h2>Popular Bus Ticket</h2>
+            <div class="ticket">
+                <img src="kanairo.jpg" alt="kanairo freshi tu" style="width:128px;height:80px;">
+                <p>Nairobi Express</p>
+                <p>KES 1000</p>
+            </div>
+            <div class="ticket">
+                <img src="arusha.jpg" alt="Arusha Salaam Aleikum" style="width:128px;height:80px;">
+                <p>Arusha Salaam Aleikum</p>
+                <p>KES 1000</p>
+            </div>
+            <div class="ticket">
+                <img src="mombasa.jpg" alt="Mombasa Tutafika" style="width:128px;height:80px;">
+                <p>Mombasa Tutafika</p>
+                <p>KES 1000</p>
+            </div>
+            <div class="ticket">
+                <img src="kampala.jpg" alt="Vuka Boarder" style="width:128px;height:80px;">
+                <p>Kampala-Vuka boarder</p>
+                <p>KES 1000</p>
+            </div>
+            <br>
+            <div class="ticket">
+                <img src="kisumu.jpg" alt="Kisumu Dala" style="width:128px;height:80px;">
+                <p>Kisumu Dala</p>
+                <p>KES 1000</p>
+            </div>
+            <div class="ticket">
+                <img src="dar.jpg" alt="Dar-es-salaam Mpo" style="width:128px;height:80px;">
+                <p>Dar-es-salaam Mpo</p>
+                <p>KES 1000</p>
+            </div>
+            <div class="ticket">
+                <img src="juba.jpg" alt="Twaingia Juba" style="width:128px;height:80px;">
+                <p>Twaingia Juba</p>
+                <p>KES 1000</p>
+            </div>
+            <div class="ticket">
+                <img src="addis ababa.jpg" alt="Addis ababa hoyee" style="width:128px;height:80px;">
+                <p>Addis ababa hoyee</p>
+                <p>KES 1000</p>
+        </div>
+</center>
+
+<div class="social-media">
+    <a href="https://www.facebook.com/profile.php?id=100090712794819&mibextid=ZbWKwL" target="_blank">
+        <img src="fb logo.png" alt="Facebook">
+    </a>
+    <a href="https://www.twitter.com/yourprofile" target="_blank">
+        <img src="x logo.png" alt="Twitter">
+    </a>
+    <a href="https://www.instagram.com/joyc.ewanja?utm_source=qr&igsh=NHpycWQ4bnBlczNj" target="_blank">
+        <img src="ig logo.jpeg" alt="Instagram">
+    </a>
+    <a href="https://www.linkedin.com/in/jerry-ouma-6045282b7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+        <img src="linkedin.png" alt="LinkedIn">
+    </a>
+    <a href="https://youtube.com/@djniceofficial254.?si=VEzbgSxbOZNj3U1_" target="_blank">
+        <img src="youtube logo.png" alt="YouTube">
+    </a>
+</div>
+    <div class="contact-form">
+        <h1>Contact Us</h1>
+        <br>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+        <br>
+        <div class="office-info">
+            <h2>Head Office</h2>
+            <p>Kilifi Booking Office</p>
+            <p>Ground Floor Zara Building</p>
+            <p>Email Us: <a href="mailto:info@universalcoach@uc.ke">info@universalcoach@uc.ke</a></p>
+            <p>For Booking (Telephone):</p>
+            <p>0792515335</p>
+            <p>0716386648</p>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="container">
+    <p>&copy;@2024  Universal coach Website</p>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+
+<script src="script.js">
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get the modal
+      var modal = document.getElementById('loginModal');
+    
+      // Get the button that opens the modal
+      var btn = document.querySelector('.btn-login');
+    
+      // Get the <span> element that closes the modal
+      var span = modal.querySelector('.close');
+    
+      // When the user clicks the button, open the modal
+      btn.addEventListener('click', function() {
+        modal.style.display = 'block';
+      });
+    
+      // When the user clicks on <span> (x), close the modal
+      span.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+    
+      // When the user clicks anywhere outside of the modal, close it
+      window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      });
+    
+      // Form submission
+      var form = document.getElementById('loginForm');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        var username = document.getElementById('username').value;
+        var phone = document.getElementById('phone').value;
+        
+        // Simulate login process (replace with actual login logic)
+        alert('Logged in as:\nUsername: ' + username + '\nPhone Number: ' + phone);
+        
+        // Close modal after successful login (for demo purposes)
+        modal.style.display = 'none';
+      });
+    });
+    // Example using jQuery for seat selection
+    $('.seat.available').click(function() {
+    var seatNumber = $(this).data('seat-number');
+    // Perform actions like highlighting the seat or adding it to a list for booking
+    console.log('Selected seat: ' + seatNumber);
+     });
+     // Get the link and content elements
+       const aboutMeLink = document.getElementById('about-me-link');
+       const aboutUsContent = document.getElementById('about-us-content');
+
+// script.js
+document.getElementById('about-me-link').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior (scrolling to top or following href)
+
+    const aboutUsContent = document.getElementById('about-us-content');
+    aboutUsContent.classList.toggle('show');
+});
+
+
+       
+    </script>
+   
+   
+
+</body>
+</html>
